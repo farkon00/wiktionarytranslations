@@ -1,13 +1,13 @@
-[English](./README.md), [Ukrainian](./README_UA.md)
+[English](./README.md), [Ukrainian](./README_UK.md)
 
 # Wiktionary Translations
 
 __Wiktionary Translations__ is a simple to use Python tool that quickly gets the translation of a term in a specified language (provided the translation exists) through the Wiktionary API.
 
-You can find a Ukrainian version of this README [here](./README_UA.md).
+You can find a Ukrainian version of this README [here](./README_UK.md).
 
 Також в цьому репозиторії є версія цього README на
-українській [тут](./README_UA.md).
+українській [тут](./README_UK.md).
 
 # Important
 

@@ -115,6 +115,7 @@ def englishToOther():
 if __name__ == '__main__':
 
     clear()
+
     print("Wiktionary Translations v1.0 [https://github.com/morrigan-plus-plus/wiktionarytranslations]")
 
     print("1. English -> Other Language")
