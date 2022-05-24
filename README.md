@@ -1,3 +1,5 @@
+[English](./README.md), [Ukrainian](./README_UK.md)
+
 # Wiktionary Translations
 
 __Wiktionary Translations__ is a simple to use Python tool that quickly gets the translation of a term in a specified language (provided the translation exists) through the Wiktionary API.
