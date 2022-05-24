@@ -52,17 +52,34 @@ if __name__ == '__main__':
     while not success:
         print("[INFO] For a full list of language codes, see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes")
         lang = input("Please enter the 2 letter language code (e.g. fi, ko, de) you wish to translate to: ")
-        if len(lang) != 2:
+        if len(lang) > 3 or len(lang) < 2 :
             clear()
             print(f"[ERROR] {lang} is not a valid language code.")
         else:
             success = True
 
     trans_tops = []
+    translations = {}
+    current_trans_top = None
 
     for line in wiki_text.splitlines():
+        if '{{trans-bottom' in line:
+            current_trans_top = None
+
         if '{{trans-top' in line:
-            trans_tops.append(line.split('|')[1][:-2])
+            tt = line.split('|')[1][:-2]
+            trans_tops.append(tt)
+            current_trans_top = tt
+        elif '{{trans-mid' not in line and current_trans_top != None and 't-needed' not in line:
+            if current_trans_top not in translations:
+                translations[current_trans_top] = {}
+            split = line.split('|')
+            if len(split) > 2:
+                trans = line.split('|')[2]
+                if '}}' in trans:
+                    trans = trans.split('}}')[0]
+                translations[current_trans_top][line.split('|')[1]] = trans
+
     clear()
     if (len(trans_tops) == 0):
         print("Unfortunately, this page contains no translations.")
@@ -70,6 +87,7 @@ if __name__ == '__main__':
 
     if (len(trans_tops) == 1):
         print(f"1 definition found to translate. Defaulting to `{trans_tops[0]}`.")
+        chosen = trans_tops[0]
     else:
         print(f"{len(trans_tops)} definitions found to translate: ")
 
@@ -77,3 +95,19 @@ if __name__ == '__main__':
         for trans_top in trans_tops:
             i += 1
             print(f"- Option {i}: {trans_top}")
+        success = False
+        while not success:
+            option = input("Please select an option: ")
+            if int(option) > len(trans_tops) or int(option) <= 0:
+                print("That is not a valid option number.")
+            else:
+                success = True
+        chosen = trans_tops[int(option) - 1]
+
+    clear()
+
+    if lang not in translations[chosen].keys():
+        print(f"Could not find a translation for `{title}:{chosen}` into language {lang}.")
+        exit(0)
+
+    print(f"Translation found! {title} in {lang}: {translations[chosen][lang]}")
