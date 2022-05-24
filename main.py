@@ -10,16 +10,15 @@ def clear():
     else:
         os.system('clear')
 
-if __name__ == '__main__':
-    url = 'https://en.wiktionary.org/w/api.php?action=parse&'
+url = 'https://en.wiktionary.org/w/api.php?action=parse&'
 
-    headers = {
-        'User-Agent': 'WiktionaryTranslations/1.0 (https://github.com/morrigan-plus-plus/wiktionarytranslations/;r.chapple.business@gmail.com)',
-        'Accept-Encoding': 'gzip'
-        }
+headers = {
+    'User-Agent': 'WiktionaryTranslations/1.0 (https://github.com/morrigan-plus-plus/wiktionarytranslations/;r.chapple.business@gmail.com)',
+    'Accept-Encoding': 'gzip'
+}
+
+def englishToOther():
     clear()
-    print("Wiktionary Translations v1.0 [https://github.com/morrigan-plus-plus/wiktionarytranslations]")
-
     print("[INFO] Wiktionary titles are case-sensitive.")
     title = input("Please enter the word you wish to get the translation(s) of: ")
 
@@ -111,3 +110,18 @@ if __name__ == '__main__':
         exit(0)
 
     print(f"Translation found! {title} in {lang}: {translations[chosen][lang]}")
+
+
+if __name__ == '__main__':
+
+    clear()
+    print("Wiktionary Translations v1.0 [https://github.com/morrigan-plus-plus/wiktionarytranslations]")
+
+    print("1. English -> Other Language")
+
+    choice = input("Please choose an option (default: 1): ")
+
+    if choice == "" or choice == "1":
+        englishToOther()
+    else:
+        print(f"Invalid option: {choice}.")
