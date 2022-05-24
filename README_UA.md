@@ -8,12 +8,12 @@ __Вікісловник переклади__ - це програма, яка ш
 
 Крім того, відповідає ["Етикет і правила використання" MediaWiki](https://www.mediawiki.org/wiki/API:Etiquette/uk?tableofcontents=1).
 
-# Вживання
+# Як користвутись
 
 ## *NIX
 
 ```console
-$ chmod+x main.py
+$ chmod +x main.py
 $ ./main.py
 ```
 
