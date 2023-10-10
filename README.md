@@ -1,5 +1,8 @@
 [English](./README.md), [Ukrainian](./README_UK.md)
 
+# THIS REPOSITORY ISN'T MINE
+This is a fork of a project, that belongs to [cinnabasil](https://github.com/cinnabasil), for which the original repository was removed.
+
 # Wiktionary Translations
 
 __Wiktionary Translations__ is a simple to use Python tool that quickly gets the translation of a term in a specified language (provided the translation exists) through the Wiktionary API.
